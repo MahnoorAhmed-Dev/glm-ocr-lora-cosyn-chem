@@ -1,11 +1,32 @@
 # GLM-OCR LoRA Fine-Tune on CoSyn Chemical Data
 
-A small, hands-on experiment: fine-tune the **GLM-OCR** vision-language model with **LoRA**, using **LLaMA-Factory** as the training framework, on a tiny example set of chemical-structure images from the **CoSyn** dataset.
+A small, hands-on experiment: fine-tune the **GLM-OCR** vision-language model with **LoRA**, using **LLaMA-Factory** as the training framework, on images of chemical structures from the **CoSyn** dataset. The task is to read a drawn molecule and write its SMILES string.
 
-The goal is **not** to ship a production model. The goal is to understand how LoRA works end to end: what gets trained, what stays frozen, what the config knobs do, and what comes out the other side. Ten samples is enough to exercise the whole pipeline and see every moving part.
+The goal is **not** to ship a production model. The goal is to understand how LoRA works end to end (what gets trained, what stays frozen, what the config knobs do, and what comes out the other side) and to measure what it changes compared with the untouched base model.
+
+## Results at a glance
+
+Evaluated on 30 CoSyn chemical molecules held out from training (no overlap with the 200 training molecules), greedy decoding, same prompt for both models:
+
+| Metric | Base GLM-OCR | + LoRA | Change |
+|---|---|---|---|
+| Exact match (canonical SMILES) | 6.7% (2/30) | 23.3% (7/30) | +16.7 pts |
+| Valid SMILES | 50.0% | 70.0% | +20.0 pts |
+| Mean character similarity | 31.8% | 61.1% | +29.3 pts |
+
+Training: 200 samples, 3 epochs, 75 steps, about 5.5 minutes on a Colab T4. Training loss fell from 3.0 to about 0.4 within 30 steps and then flattened.
+
+![Training loss](results/adapter/training_loss.png)
+
+What changed most is **output behavior**. The base model often loses control: 8 of 30 outputs ran past 150 characters in repetition loops such as `C(O)C(O)C(O)…`, 4 were LaTeX or HTML and 1 was a prose sentence instead of SMILES. After LoRA only 1 output was that long and none were LaTeX or HTML. **Structure accuracy improved less**: most fine-tuned answers are close but not exact (a missing fragment, an added stereo marker), and large molecules are still wrong.
+
+Full per-sample outputs are in [`results/summary.md`](results/summary.md), with the raw data in `results/base.json` and `results/lora.json`. The trained adapter (15 MB) is in `results/adapter/`.
+
+**Read these numbers with care.** Thirty samples is small (the gain is five more exact matches), exact match is strict (a missing stereo marker counts as a miss), and this is a single run with one seed. It demonstrates the pipeline and the direction of the effect; it is not a benchmark.
 
 ## Contents
 
+0. [Results at a glance](#results-at-a-glance)
 1. [What is GLM-OCR](#1-what-is-glm-ocr)
 2. [What is LLaMA-Factory and how it is used here](#2-what-is-llama-factory-and-how-it-is-used-here)
 3. [The data](#3-the-data)
@@ -76,14 +97,15 @@ This repo contains a **trimmed copy** of LLaMA-Factory. Tests, docs, Docker file
 
 ### What is used here
 
-Ten examples from the chemical subset, stored in `LLaMA-Factory/data/`:
+Three sets live in `LLaMA-Factory/data/`:
 
-```
-data/cosyn_chemical.json      # the 10 records
-data/cosyn_chemical/1.png … 10.png   # the 10 molecule images
-```
+| Set | Size | Files | Use |
+|---|---|---|---|
+| `cosyn_chem_train` | 200 | `cosyn_chem_train.json`, `cosyn_chem_train/` | LoRA training |
+| `cosyn_chem_eval` | 30 | `cosyn_chem_eval.json`, `cosyn_chem_eval/` | held-out evaluation, never trained on |
+| `cosyn_chemical` | 10 | `cosyn_chemical.json`, `cosyn_chemical/` | the original tiny example set, useful as a quick smoke test |
 
-This is deliberately tiny. It is an **example set to learn how LoRA behaves**, not a dataset to train a useful model on.
+The train and eval sets are built by `scripts/prepare_data.py`, which streams the `chemical` subset of [`allenai/CoSyn-400K`](https://huggingface.co/datasets/allenai/CoSyn-400K) on Hugging Face (about 9,000 molecules), shuffles with a fixed seed (42), keeps only unique molecules, and writes the two splits. Because the molecules are unique across both sets, no evaluation target appears in training.
 
 ### Record format
 
@@ -120,7 +142,7 @@ So the task being taught is **image-to-structure transcription**: read a drawn m
 }
 ```
 
-Image paths in the JSON are resolved relative to `data/` (LLaMA-Factory's default media directory).
+`cosyn_chem_train` and `cosyn_chem_eval` are registered the same way, pointing at their own json files. Image paths in the JSON are resolved relative to `data/` (LLaMA-Factory's default media directory).
 
 ---
 
@@ -224,11 +246,30 @@ warmup_ratio: 0.1                  # first 10% of steps ramp the LR up
 bf16: true                         # bfloat16 training
 ```
 
-### What to expect with 10 samples
+### The config used for the reported results
 
-- With a batch of 4 and 4 accumulation steps, 10 samples give roughly **one optimizer update per epoch**, so about 3 updates in total. That is enough to confirm the pipeline works but not enough to learn the task.
-- `logging_steps: 10` means no loss line may be printed in so few steps. Lower it to `1` to watch the loss.
-- To see LoRA actually fit the data, reduce `gradient_accumulation_steps`, raise `num_train_epochs`, or both.
+The numbers above come from `glm_ocr_lora_colab.yaml`, which is the config above with these differences:
+
+| Setting | `glm_ocr_lora_sft.yaml` | `glm_ocr_lora_colab.yaml` |
+|---|---|---|
+| `dataset` | `cosyn_chemical` (10 samples) | `cosyn_chem_train` (200 samples) |
+| precision | `bf16: true` | `fp16: true` (the Colab T4 has no bf16) |
+| `gradient_accumulation_steps` | 4 (effective batch 16) | 2 (effective batch 8) |
+| `logging_steps` | 10 | 5 |
+| `save_only_model` | `false` | `true` (keeps only the adapter) |
+| `output_dir` | `saves/glm-ocr/lora/sft` | `saves/glm-ocr/lora/colab` |
+
+With 200 samples and an effective batch of 8, one epoch is 25 optimizer updates, so 3 epochs is 75 steps. With the original 10-sample set there is roughly one update per epoch, which is enough to confirm the pipeline runs but not enough to learn the task.
+
+### How it is evaluated
+
+`scripts/evaluate.py` runs a model on every eval image with the prompt `Code Generation:`, extracts the SMILES from the `rdkit` fence (or uses the raw text if the fence is missing), and scores it:
+
+- **Exact match:** the prediction and target are identical after RDKit canonicalization, so equivalent spellings of the same molecule count as correct.
+- **Valid SMILES:** RDKit can parse the prediction into a molecule.
+- **Character similarity:** `1 - edit_distance / max_length`, which gives partial credit for near misses.
+
+`scripts/make_summary.py` turns `results/base.json` and `results/lora.json` into `results/summary.md`.
 
 ---
 
@@ -239,6 +280,16 @@ bf16: true                         # bfloat16 training
 ├── README.md
 ├── .gitignore
 ├── GLM-OCR/                    # base model (not tracked, see below)
+├── notebooks/
+│   └── colab_run.ipynb         # runs the whole experiment on a Colab GPU
+├── scripts/
+│   ├── prepare_data.py         # builds the train / eval splits from CoSyn
+│   ├── evaluate.py             # scores a model (optionally + adapter)
+│   └── make_summary.py         # builds results/summary.md
+├── results/
+│   ├── base.json, lora.json    # raw per-sample outputs and metrics
+│   ├── summary.md              # side-by-side comparison
+│   └── adapter/                # trained LoRA adapter, loss plot, logs
 └── LLaMA-Factory/              # trimmed LLaMA-Factory
     ├── LICENSE                 # Apache-2.0, kept for the redistributed source
     ├── README.md
@@ -247,9 +298,10 @@ bf16: true                         # bfloat16 training
     ├── src/                    # LLaMA-Factory source
     └── data/
         ├── dataset_info.json
-        ├── cosyn_chemical.json
-        ├── cosyn_chemical/     # 1.png … 10.png
-        ├── glm_ocr_lora_sft.yaml
+        ├── cosyn_chem_train*, cosyn_chem_eval*   # 200 / 30 sample splits
+        ├── cosyn_chemical*                       # original 10 samples
+        ├── glm_ocr_lora_colab.yaml               # config used for the results
+        └── glm_ocr_lora_sft.yaml                 # original 10-sample config
 ```
 
 `GLM-OCR/` holds the base model. The 2.7 GB `model.safetensors` is too large for a normal GitHub push (and over the 2 GB Git LFS limit), so `GLM-OCR/` is git-ignored and downloaded from Hugging Face instead. `LLaMA-Factory/saves/` (training output) is git-ignored too.
@@ -280,10 +332,33 @@ Use a recent `transformers` release that supports the `glm_ocr` architecture.
 Run from inside `LLaMA-Factory/` so the relative paths (`../GLM-OCR`, `data/`) resolve:
 
 ```bash
-llamafactory-cli train data/glm_ocr_lora_sft.yaml
+llamafactory-cli train data/glm_ocr_lora_colab.yaml
 ```
 
-Outputs land in `LLaMA-Factory/saves/glm-ocr/lora/sft/`: the adapter weights, checkpoints, trainer state and a loss plot.
+Outputs land in `LLaMA-Factory/saves/glm-ocr/lora/colab/`: the adapter weights, trainer state and a loss plot. (`glm_ocr_lora_sft.yaml` is the same run on the original 10 samples.)
+
+### 4. Evaluate
+
+From the repo root:
+
+```bash
+# baseline
+python scripts/evaluate.py --data LLaMA-Factory/data/cosyn_chem_eval.json \
+  --data-root LLaMA-Factory/data --model GLM-OCR --out results/base.json
+
+# with the adapter
+python scripts/evaluate.py --data LLaMA-Factory/data/cosyn_chem_eval.json \
+  --data-root LLaMA-Factory/data --model GLM-OCR \
+  --adapter LLaMA-Factory/saves/glm-ocr/lora/colab --out results/lora.json
+
+python scripts/make_summary.py
+```
+
+Install `rdkit` (`pip install rdkit`) first, otherwise exact match falls back to plain string comparison and the valid-SMILES metric is skipped.
+
+### Or run everything on Colab
+
+Open `notebooks/colab_run.ipynb` in Google Colab (File → Open notebook → GitHub), set the runtime to a **T4 GPU**, and run the cells in order. It installs the dependencies, downloads the model, runs the baseline, trains, evaluates the adapter, and offers a zip of `results/` to download.
 
 ---
 
@@ -294,9 +369,9 @@ Merge the adapter into the base weights to get a standalone model:
 ```bash
 llamafactory-cli export \
   --model_name_or_path ../GLM-OCR \
-  --adapter_name_or_path saves/glm-ocr/lora/sft \
+  --adapter_name_or_path saves/glm-ocr/lora/colab \
   --template glm_ocr \
-  --export_dir saves/glm-ocr/lora/sft/merged \
+  --export_dir saves/glm-ocr/lora/colab/merged \
   --trust_remote_code true
 ```
 
@@ -306,9 +381,12 @@ Or skip merging and load the base model with the adapter applied at inference ti
 
 ## 9. Limitations
 
-- **Ten samples is a demonstration, not a training set.** Do not expect the model to generalise from it, and do not evaluate on the same images it trained on.
-- There is **no validation split** configured (the eval block in the YAML is commented out). Add `val_size` and an eval strategy when you move to a real dataset.
-- The task here (image to SMILES) is narrow. Results say little about GLM-OCR's general document-OCR ability.
+- **Small evaluation.** Thirty held-out molecules, one run, one seed. The direction of the effect is clear but the exact percentages are not precise, and there is no confidence interval.
+- **Strict metric.** Exact match counts a missing stereo marker or a dropped fragment as a miss. Character similarity is the better partial-credit signal.
+- **No validation loss.** The training loss plateaued after about 30 steps, but without a validation curve it is unclear whether more epochs would help or just overfit.
+- **Greedy decoding capped at 256 new tokens.** This cuts off the base model's repetition loops; a longer cap would change its outputs.
+- **Narrow task.** Image to SMILES says little about GLM-OCR's general document-OCR ability, and the fine-tune may not transfer outside chemical structures.
+- **Synthetic images.** CoSyn molecules are rendered by code, so real scanned or hand-drawn structures could behave differently.
 
 ## Credits
 
