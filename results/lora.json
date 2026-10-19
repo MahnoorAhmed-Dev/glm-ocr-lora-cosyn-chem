@@ -1,0 +1,313 @@
+{
+  "summary": {
+    "model": "GLM-OCR",
+    "adapter": "LLaMA-Factory/saves/glm-ocr/lora/colab",
+    "samples": 30,
+    "exact_match": 0.2333,
+    "valid_smiles": 0.7,
+    "mean_similarity": 0.6107,
+    "rdkit": true
+  },
+  "samples": [
+    {
+      "image": "cosyn_chem_eval/1.png",
+      "target": "CCO.CCCCC(=O)O",
+      "prediction": "CCCCC(=O)O",
+      "raw_output": "```rdkit\nCCCCC(=O)O\n```",
+      "valid": true,
+      "exact_match": false,
+      "similarity": 0.7143,
+      "seconds": 14.75
+    },
+    {
+      "image": "cosyn_chem_eval/2.png",
+      "target": "CCOC=O",
+      "prediction": "CCOC=O",
+      "raw_output": "```rdkit\nCCOC=O\n```",
+      "valid": true,
+      "exact_match": true,
+      "similarity": 1.0,
+      "seconds": 5.87
+    },
+    {
+      "image": "cosyn_chem_eval/3.png",
+      "target": "CC1=CC(=C(C(=C1O)C)OC)C(C=CC2=CC(=C(C(=C2O)C)OC)C(CO)O)O",
+      "prediction": "CC1=CC(=C(C=C1C=C/C(=C2C(=C(C=C2C=C1)O)C)O)OC)C(O)CO",
+      "raw_output": "```rdkit\nCC1=CC(=C(C=C1C=C/C(=C2C(=C(C=C2C=C1)O)C)O)OC)C(O)CO\n```",
+      "valid": false,
+      "exact_match": false,
+      "similarity": 0.6429,
+      "seconds": 41.47
+    },
+    {
+      "image": "cosyn_chem_eval/4.png",
+      "target": "CC1=C(C(CCC1)(C)C)C=CC(=CC=CC(=CC=CC=C(C)C=CC=C(C)C=CC2=C(CCCC2(C)C)C)C)C",
+      "prediction": "CC1CCCC(C)(C)C(=C1C)/C=C/C=C/C(C)=C/C=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)(C)C)/C=C/C(C)(C)=C/CCCC1=C(C)CCC",
+      "raw_output": "```rdkit\nCC1CCCC(C)(C)C(=C1C)/C=C/C=C/C(C)=C/C=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)(C)C)/C=C/C(C)(C)=C/CCCC1=C(C)CCC\n```",
+      "valid": false,
+      "exact_match": false,
+      "similarity": 0.5534,
+      "seconds": 45.35
+    },
+    {
+      "image": "cosyn_chem_eval/5.png",
+      "target": "[Cu+].[N-]=[N+]=[N-]",
+      "prediction": "[N+](=N=N=N)Cu",
+      "raw_output": "```rdkit\n[N+](=N=N=N)Cu\n```",
+      "valid": false,
+      "exact_match": false,
+      "similarity": 0.35,
+      "seconds": 5.89
+    },
+    {
+      "image": "cosyn_chem_eval/6.png",
+      "target": "CCCCCCCCCCCC(=O)OCC(COC(=O)CCCCCCCCCCC)OC(=O)CCCCCCCCCCC",
+      "prediction": "CCCCCCCCCCCCCCC(=O)OC(COC(=O)CCCCCCCCCCCC)OC(=O)CCCCCCCCCCCCC",
+      "raw_output": "```rdkit\nCCCCCCCCCCCCCCC(=O)OC(COC(=O)CCCCCCCCCCCC)OC(=O)CCCCCCCCCCCCC\n```",
+      "valid": true,
+      "exact_match": false,
+      "similarity": 0.8852,
+      "seconds": 70.4
+    },
+    {
+      "image": "cosyn_chem_eval/7.png",
+      "target": "CC(C)(C#N)CC(C)C=CC(c1ccccc1)CC(C)(C#N)CC(C)C=CC(c2ccccc2)CC(C)(C#N)",
+      "prediction": "```rdkit\nCC(C#N)C(C)C=CC(C#N)CC(C#N)(C)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)",
+      "raw_output": "```rdkit\nCC(C#N)C(C)C=CC(C#N)CC(C#N)(C)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)C(C#N)",
+      "valid": false,
+      "exact_match": false,
+      "similarity": 0.1587,
+      "seconds": 92.61
+    },
+    {
+      "image": "cosyn_chem_eval/8.png",
+      "target": "O=C1O[C@H]([C@H](CO)O)C(O)=C1O",
+      "prediction": "O=C1C(=C(C(=O)O1)[C@H](CO)O)O",
+      "raw_output": "```rdkit\nO=C1C(=C(C(=O)O1)[C@H](CO)O)O\n```",
+      "valid": true,
+      "exact_match": false,
+      "similarity": 0.3667,
+      "seconds": 15.46
+    },
+    {
+      "image": "cosyn_chem_eval/9.png",
+      "target": "CC=O",
+      "prediction": "CC=O",
+      "raw_output": "```rdkit\nCC=O\n```",
+      "valid": true,
+      "exact_match": true,
+      "similarity": 1.0,
+      "seconds": 4.7
+    },
+    {
+      "image": "cosyn_chem_eval/10.png",
+      "target": "N[C@@H](CC(=O)N(CCC(=O)O)C)C(=O)O",
+      "prediction": "CN(CCC(=O)O)C(=O)C[C@H](C(=O)O)N",
+      "raw_output": "```rdkit\nCN(CCC(=O)O)C(=O)C[C@H](C(=O)O)N\n```",
+      "valid": true,
+      "exact_match": false,
+      "similarity": 0.4242,
+      "seconds": 25.12
+    },
+    {
+      "image": "cosyn_chem_eval/11.png",
+      "target": "CC(C)(C)C(=O)OCCOC(=O)C(C)(C)C",
+      "prediction": "CC(C)(C)C(=O)OCCOC(=O)C(C)(C)C",
+      "raw_output": "```rdkit\nCC(C)(C)C(=O)OCCOC(=O)C(C)(C)C\n```",
+      "valid": true,
+      "exact_match": true,
+      "similarity": 1.0,
+      "seconds": 15.82
+    },
+    {
+      "image": "cosyn_chem_eval/12.png",
+      "target": "Oc1ccc(/C=C/c2cc(O)cc(O)c2)cc1",
+      "prediction": "O=Cc1ccc(O)cc1O",
+      "raw_output": "```rdkit\nO=Cc1ccc(O)cc1O\n```",
+      "valid": true,
+      "exact_match": false,
+      "similarity": 0.4,
+      "seconds": 18.98
+    },
+    {
+      "image": "cosyn_chem_eval/13.png",
+      "target": "O=Cc1ccccc1",
+      "prediction": "O=Cc1ccccc1",
+      "raw_output": "```rdkit\nO=Cc1ccccc1\n```",
+      "valid": true,
+      "exact_match": true,
+      "similarity": 1.0,
+      "seconds": 9.85
+    },
+    {
+      "image": "cosyn_chem_eval/14.png",
+      "target": "CC12CCC(=O)C=C1CCC3C2CCC4(C(=O)CCC34C)C(=O)CO",
+      "prediction": "CC1(CCC2C3CCC(C2C1=CC(=O)CC3)(C)C)C(=O)CCO",
+      "raw_output": "```rdkit\nCC1(CCC2C3CCC(C2C1=CC(=O)CC3)(C)C)C(=O)CCO\n```",
+      "valid": true,
+      "exact_match": false,
+      "similarity": 0.5778,
+      "seconds": 30.54
+    },
+    {
+      "image": "cosyn_chem_eval/15.png",
+      "target": "[Na+].[Na+].[O-]S(=O)(=O)OS(=O)(=O)[O-]",
+      "prediction": "[Na+].[Na+].[O-].[O-].[S-].[S-].[O-].[O-].[O-].[O-]",
+      "raw_output": "```rdkit\n[Na+].[Na+].[O-].[O-].[S-].[S-].[O-].[O-].[O-].[O-]\n```",
+      "valid": true,
+      "exact_match": false,
+      "similarity": 0.4706,
+      "seconds": 18.79
+    },
+    {
+      "image": "cosyn_chem_eval/16.png",
+      "target": "C1=NC(=C2C(=N1)N(C=N2)C3C(C(C(O3)COP(=O)(O)OP(=O)(O)OP(=O)(O)O)O)O)N",
+      "prediction": "Nc1ncnc2c1ncn2C(O)C(O)C(O)C(O)OP(O)(=O)OP(O)(=O)OP(O)(=O)O",
+      "raw_output": "```rdkit\nNc1ncnc2c1ncn2C(O)C(O)C(O)C(O)OP(O)(=O)OP(O)(=O)OP(O)(=O)O\n```",
+      "valid": true,
+      "exact_match": false,
+      "similarity": 0.4559,
+      "seconds": 39.65
+    },
+    {
+      "image": "cosyn_chem_eval/17.png",
+      "target": "[Na+].[Cl-].[O-]Cl",
+      "prediction": "[Na+].[O-].[Cl-]",
+      "raw_output": "```rdkit\n[Na+].[O-].[Cl-]\n```",
+      "valid": true,
+      "exact_match": false,
+      "similarity": 0.6667,
+      "seconds": 8.59
+    },
+    {
+      "image": "cosyn_chem_eval/18.png",
+      "target": "CC1=C(C(CCC1)(C)C)C=CC(=C)C=O",
+      "prediction": "CC1=C(C(CCC1)(C)C)/C=C/C(=C)C=O",
+      "raw_output": "```rdkit\nCC1=C(C(CCC1)(C)C)/C=C/C(=C)C=O\n```",
+      "valid": true,
+      "exact_match": false,
+      "similarity": 0.9355,
+      "seconds": 19.24
+    },
+    {
+      "image": "cosyn_chem_eval/19.png",
+      "target": "C(C1C(C(C(C(O1)OC2(C(C(C(O2)CO)O)O)CO)O)O)O)O",
+      "prediction": "CC1C(OC(OC2C(C1O)CO)OCC2)OCCO",
+      "raw_output": "```rdkit\nCC1C(OC(OC2C(C1O)CO)OCC2)OCCO\n```",
+      "valid": true,
+      "exact_match": false,
+      "similarity": 0.5111,
+      "seconds": 36.0
+    },
+    {
+      "image": "cosyn_chem_eval/20.png",
+      "target": "COC(=O)C1=CC=CC=C1O",
+      "prediction": "COC(=O)c1ccccc1O",
+      "raw_output": "```rdkit\nCOC(=O)c1ccccc1O\n```",
+      "valid": true,
+      "exact_match": true,
+      "similarity": 0.5263,
+      "seconds": 14.54
+    },
+    {
+      "image": "cosyn_chem_eval/21.png",
+      "target": "[Ag+].[Br-]",
+      "prediction": "[Br]^- [Ag+]",
+      "raw_output": "```rdkit\n[Br]^- [Ag+]\n```",
+      "valid": false,
+      "exact_match": false,
+      "similarity": 0.25,
+      "seconds": 5.2
+    },
+    {
+      "image": "cosyn_chem_eval/22.png",
+      "target": "CC12CCC(=O)C=C1CCC3C4CCC(C(=O)CO)(C(O)CC34C)C2",
+      "prediction": "CC12CCC3CC(C12)C(CCC3C(O)C)C(=O)CO",
+      "raw_output": "```rdkit\nCC12CCC3CC(C12)C(CCC3C(O)C)C(=O)CO\n```",
+      "valid": false,
+      "exact_match": false,
+      "similarity": 0.5217,
+      "seconds": 54.21
+    },
+    {
+      "image": "cosyn_chem_eval/23.png",
+      "target": "CCCCCC",
+      "prediction": "CCCCC",
+      "raw_output": "```rdkit\nCCCCC\n```",
+      "valid": true,
+      "exact_match": false,
+      "similarity": 0.8333,
+      "seconds": 5.63
+    },
+    {
+      "image": "cosyn_chem_eval/24.png",
+      "target": "O=C1OC(=O)C=C1",
+      "prediction": "O=C1C=CC(=O)O1",
+      "raw_output": "```rdkit\nO=C1C=CC(=O)O1\n```",
+      "valid": true,
+      "exact_match": true,
+      "similarity": 0.5714,
+      "seconds": 8.84
+    },
+    {
+      "image": "cosyn_chem_eval/25.png",
+      "target": "[Co@OH3]([OH2])([OH2])([OH2])([OH2])([OH2])",
+      "prediction": "[Co]([H2O])([OH])([H2O])[OH]O",
+      "raw_output": "```rdkit\n[Co]([H2O])([OH])([H2O])[OH]O\n```",
+      "valid": false,
+      "exact_match": false,
+      "similarity": 0.6047,
+      "seconds": 11.04
+    },
+    {
+      "image": "cosyn_chem_eval/26.png",
+      "target": "CN(C)c1cccc2cccc(N(C)C)c12",
+      "prediction": "CN(C)C1=C2C=CC=C2C(=C1)N(C)C",
+      "raw_output": "```rdkit\nCN(C)C1=C2C=CC=C2C(=C1)N(C)C\n```",
+      "valid": true,
+      "exact_match": false,
+      "similarity": 0.3214,
+      "seconds": 28.77
+    },
+    {
+      "image": "cosyn_chem_eval/27.png",
+      "target": "NNc1ccccc1",
+      "prediction": "NNc1ccccc1",
+      "raw_output": "```rdkit\nNNc1ccccc1\n```",
+      "valid": true,
+      "exact_match": true,
+      "similarity": 1.0,
+      "seconds": 9.68
+    },
+    {
+      "image": "cosyn_chem_eval/28.png",
+      "target": "C1CO1",
+      "prediction": "O1C2C1=O",
+      "raw_output": "```rdkit\nO1C2C1=O\n```",
+      "valid": false,
+      "exact_match": false,
+      "similarity": 0.375,
+      "seconds": 7.42
+    },
+    {
+      "image": "cosyn_chem_eval/29.png",
+      "target": "c1ccc(cc1)O",
+      "prediction": "Oc1ccc2cccc12",
+      "raw_output": "```rdkit\nOc1ccc2cccc12\n```",
+      "valid": true,
+      "exact_match": false,
+      "similarity": 0.5385,
+      "seconds": 9.94
+    },
+    {
+      "image": "cosyn_chem_eval/30.png",
+      "target": "CC1CCN2CC(C1)C(C(C2)O)C3=CC=CN4C3=CC=C4",
+      "prediction": "CC1CC2CN3CC1C(C2C3)C(=CC=C1)C4=CC=CN4",
+      "raw_output": "```rdkit\nCC1CC2CN3CC1C(C2C3)C(=CC=C1)C4=CC=CN4\n```",
+      "valid": false,
+      "exact_match": false,
+      "similarity": 0.6667,
+      "seconds": 28.38
+    }
+  ]
+}

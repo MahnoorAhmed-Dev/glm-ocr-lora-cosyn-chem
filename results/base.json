@@ -1,0 +1,313 @@
+{
+  "summary": {
+    "model": "GLM-OCR",
+    "adapter": null,
+    "samples": 30,
+    "exact_match": 0.0667,
+    "valid_smiles": 0.5,
+    "mean_similarity": 0.3175,
+    "rdkit": true
+  },
+  "samples": [
+    {
+      "image": "cosyn_chem_eval/1.png",
+      "target": "CCO.CCCCC(=O)O",
+      "prediction": "CCCC(=O)C(O)C",
+      "raw_output": "CCCC(=O)C(O)C",
+      "valid": true,
+      "exact_match": false,
+      "similarity": 0.4286,
+      "seconds": 16.97
+    },
+    {
+      "image": "cosyn_chem_eval/2.png",
+      "target": "CCOC=O",
+      "prediction": "CCOC=O",
+      "raw_output": "CCOC=O",
+      "valid": true,
+      "exact_match": true,
+      "similarity": 1.0,
+      "seconds": 5.68
+    },
+    {
+      "image": "cosyn_chem_eval/3.png",
+      "target": "CC1=CC(=C(C(=C1O)C)OC)C(C=CC2=CC(=C(C(=C2O)C)OC)C(CO)O)O",
+      "prediction": "Cc1cc(C)c(O)c(C)c1OcC(O)c1cc(C)c(O)c1OcC(O)c1cc(C)c(O)c1C",
+      "raw_output": "Cc1cc(C)c(O)c(C)c1OcC(O)c1cc(C)c(O)c1OcC(O)c1cc(C)c(O)c1C",
+      "valid": false,
+      "exact_match": false,
+      "similarity": 0.2807,
+      "seconds": 45.02
+    },
+    {
+      "image": "cosyn_chem_eval/4.png",
+      "target": "CC1=C(C(CCC1)(C)C)C=CC(=CC=CC(=CC=CC=C(C)C=CC=C(C)C=CC2=C(CCCC2(C)C)C)C)C",
+      "prediction": "C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C",
+      "raw_output": "C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C/C(C)=C/C=C",
+      "valid": true,
+      "exact_match": false,
+      "similarity": 0.1721,
+      "seconds": 49.48
+    },
+    {
+      "image": "cosyn_chem_eval/5.png",
+      "target": "[Cu+].[N-]=[N+]=[N-]",
+      "prediction": "$$\n\\mathrm {C u} ^ {+} \\mathrm {N} ^ {-} \\mathrm {N} ^ {+} \\mathrm {N} ^ {-}\n$$",
+      "raw_output": "$$\n\\mathrm {C u} ^ {+} \\mathrm {N} ^ {-} \\mathrm {N} ^ {+} \\mathrm {N} ^ {-}\n$$",
+      "valid": false,
+      "exact_match": false,
+      "similarity": 0.1139,
+      "seconds": 6.25
+    },
+    {
+      "image": "cosyn_chem_eval/6.png",
+      "target": "CCCCCCCCCCCC(=O)OCC(COC(=O)CCCCCCCCCCC)OC(=O)CCCCCCCCCCC",
+      "prediction": "CCCCCCCCCCCCCCCCCCCCC(=O)C(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC",
+      "raw_output": "CCCCCCCCCCCCCCCCCCCCC(=O)C(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC(=O)COC",
+      "valid": true,
+      "exact_match": false,
+      "similarity": 0.183,
+      "seconds": 75.2
+    },
+    {
+      "image": "cosyn_chem_eval/7.png",
+      "target": "CC(C)(C#N)CC(C)C=CC(c1ccccc1)CC(C)(C#N)CC(C)C=CC(c2ccccc2)CC(C)(C#N)",
+      "prediction": "C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C",
+      "raw_output": "C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C(C)C",
+      "valid": true,
+      "exact_match": false,
+      "similarity": 0.129,
+      "seconds": 89.65
+    },
+    {
+      "image": "cosyn_chem_eval/8.png",
+      "target": "O=C1O[C@H]([C@H](CO)O)C(O)=C1O",
+      "prediction": "C(=O)C(=C)C(=O)[C@@H](O)CO",
+      "raw_output": "C(=O)C(=C)C(=O)[C@@H](O)CO",
+      "valid": true,
+      "exact_match": false,
+      "similarity": 0.3,
+      "seconds": 15.03
+    },
+    {
+      "image": "cosyn_chem_eval/9.png",
+      "target": "CC=O",
+      "prediction": "CC=O",
+      "raw_output": "CC=O",
+      "valid": true,
+      "exact_match": true,
+      "similarity": 1.0,
+      "seconds": 4.47
+    },
+    {
+      "image": "cosyn_chem_eval/10.png",
+      "target": "N[C@@H](CC(=O)N(CCC(=O)O)C)C(=O)O",
+      "prediction": "C(N)CCC(=O)O<sup>+</sup>C[C@@H](C(=O)O)N<sup>+</sup>",
+      "raw_output": "C(N)CCC(=O)O<sup>+</sup>C[C@@H](C(=O)O)N<sup>+</sup>",
+      "valid": false,
+      "exact_match": false,
+      "similarity": 0.25,
+      "seconds": 25.12
+    },
+    {
+      "image": "cosyn_chem_eval/11.png",
+      "target": "CC(C)(C)C(=O)OCCOC(=O)C(C)(C)C",
+      "prediction": "C(C)(C)C(=O)OCCOC(=O)C(C)(C)C",
+      "raw_output": "C(C)(C)C(=O)OCCOC(=O)C(C)(C)C",
+      "valid": true,
+      "exact_match": false,
+      "similarity": 0.9667,
+      "seconds": 15.48
+    },
+    {
+      "image": "cosyn_chem_eval/12.png",
+      "target": "Oc1ccc(/C=C/c2cc(O)cc(O)c2)cc1",
+      "prediction": "C=Cc1cc(O)cc(O)c1<sep>OH</sep>",
+      "raw_output": "C=Cc1cc(O)cc(O)c1<sep>OH</sep>",
+      "valid": false,
+      "exact_match": false,
+      "similarity": 0.2,
+      "seconds": 19.31
+    },
+    {
+      "image": "cosyn_chem_eval/13.png",
+      "target": "O=Cc1ccccc1",
+      "prediction": "C=OC1=CC=C1",
+      "raw_output": "C=OC1=CC=C1",
+      "valid": false,
+      "exact_match": false,
+      "similarity": 0.2727,
+      "seconds": 9.63
+    },
+    {
+      "image": "cosyn_chem_eval/14.png",
+      "target": "CC12CCC(=O)C=C1CCC3C2CCC4(C(=O)CCC34C)C(=O)CO",
+      "prediction": "C(C)(C)C1(C)C2C3C4C(C)(C)C(C(=O)C)C(C)(C)C4C3C2C1C3C4C(C)(C)C(C(=O)C)C4C3C2C1C3C4C(C)(C)C(C(=O)C)C4C3C2C1C3C4C(C)(C)C(C(=O)C)C4C3C2C1C3C4C(C)(C)C(C(=O)C)C4C3C2C1C3C4C(C)(C)C(C(=O)C)C4C3C2C1C3C4C(C)(C)C(C(=O)C)C4C3C2C1C3C4C(C)(C)C(C(=O)C)C4C3C2C1C3C4C(C)(C)C(C(=O)C)C4C3C2C1C3C4C(C)(C)C(C(=O)",
+      "raw_output": "C(C)(C)C1(C)C2C3C4C(C)(C)C(C(=O)C)C(C)(C)C4C3C2C1C3C4C(C)(C)C(C(=O)C)C4C3C2C1C3C4C(C)(C)C(C(=O)C)C4C3C2C1C3C4C(C)(C)C(C(=O)C)C4C3C2C1C3C4C(C)(C)C(C(=O)C)C4C3C2C1C3C4C(C)(C)C(C(=O)C)C4C3C2C1C3C4C(C)(C)C(C(=O)C)C4C3C2C1C3C4C(C)(C)C(C(=O)C)C4C3C2C1C3C4C(C)(C)C(C(=O)C)C4C3C2C1C3C4C(C)(C)C(C(=O)",
+      "valid": false,
+      "exact_match": false,
+      "similarity": 0.1546,
+      "seconds": 35.8
+    },
+    {
+      "image": "cosyn_chem_eval/15.png",
+      "target": "[Na+].[Na+].[O-]S(=O)(=O)OS(=O)(=O)[O-]",
+      "prediction": "S(=O)(=O)(=O)S(=O)(=O)O(S(=O)(=O)(=O)S(=O)(=O)(=O)O)",
+      "raw_output": "S(=O)(=O)(=O)S(=O)(=O)O(S(=O)(=O)(=O)S(=O)(=O)(=O)O)",
+      "valid": false,
+      "exact_match": false,
+      "similarity": 0.4038,
+      "seconds": 18.26
+    },
+    {
+      "image": "cosyn_chem_eval/16.png",
+      "target": "C1=NC(=C2C(=N1)N(C=N2)C3C(C(C(O3)COP(=O)(O)OP(=O)(O)OP(=O)(O)O)O)O)N",
+      "prediction": "C(C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)",
+      "raw_output": "C(C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)",
+      "valid": false,
+      "exact_match": false,
+      "similarity": 0.1374,
+      "seconds": 45.18
+    },
+    {
+      "image": "cosyn_chem_eval/17.png",
+      "target": "[Na+].[Cl-].[O-]Cl",
+      "prediction": "$$\n\\mathrm {O} ^ {-} \\mathrm {C l} \\mathrm {N a} ^ {+}\n$$",
+      "raw_output": "$$\n\\mathrm {O} ^ {-} \\mathrm {C l} \\mathrm {N a} ^ {+}\n$$",
+      "valid": false,
+      "exact_match": false,
+      "similarity": 0.0702,
+      "seconds": 8.66
+    },
+    {
+      "image": "cosyn_chem_eval/18.png",
+      "target": "CC1=C(C(CCC1)(C)C)C=CC(=C)C=O",
+      "prediction": "C=C(CC=O)C=C/C1=C(CCC1(C)C)C",
+      "raw_output": "C=C(CC=O)C=C/C1=C(CCC1(C)C)C",
+      "valid": true,
+      "exact_match": false,
+      "similarity": 0.4138,
+      "seconds": 18.9
+    },
+    {
+      "image": "cosyn_chem_eval/19.png",
+      "target": "C(C1C(C(C(C(O1)OC2(C(C(C(O2)CO)O)O)CO)O)O)O)O",
+      "prediction": "C(C)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C",
+      "raw_output": "C(C)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C(O)C",
+      "valid": true,
+      "exact_match": false,
+      "similarity": 0.1202,
+      "seconds": 41.99
+    },
+    {
+      "image": "cosyn_chem_eval/20.png",
+      "target": "COC(=O)C1=CC=CC=C1O",
+      "prediction": "C(O)C(=O)C1=C=C=C1O",
+      "raw_output": "C(O)C(=O)C1=C=C=C1O",
+      "valid": true,
+      "exact_match": false,
+      "similarity": 0.7895,
+      "seconds": 14.52
+    },
+    {
+      "image": "cosyn_chem_eval/21.png",
+      "target": "[Ag+].[Br-]",
+      "prediction": "<html><body><table><tr><td>$Br^{-}$</td><td>$Ag^{+}$</td></tr><tr><td>1</td><td>0</td></tr></table></body></html>",
+      "raw_output": "<html><body><table><tr><td>$Br^{-}$</td><td>$Ag^{+}$</td></tr><tr><td>1</td><td>0</td></tr></table></body></html>",
+      "valid": false,
+      "exact_match": false,
+      "similarity": 0.0354,
+      "seconds": 5.99
+    },
+    {
+      "image": "cosyn_chem_eval/22.png",
+      "target": "CC12CCC(=O)C=C1CCC3C4CCC(C(=O)CO)(C(O)CC34C)C2",
+      "prediction": "C1C2C3C(C2C1C3C(O)C(=O)CO)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(",
+      "raw_output": "C1C2C3C(C2C1C3C(O)C(=O)CO)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(C)C(C)(",
+      "valid": false,
+      "exact_match": false,
+      "similarity": 0.0963,
+      "seconds": 60.39
+    },
+    {
+      "image": "cosyn_chem_eval/23.png",
+      "target": "CCCCCC",
+      "prediction": "CCCCC",
+      "raw_output": "CCCCC",
+      "valid": true,
+      "exact_match": false,
+      "similarity": 0.8333,
+      "seconds": 5.43
+    },
+    {
+      "image": "cosyn_chem_eval/24.png",
+      "target": "O=C1OC(=O)C=C1",
+      "prediction": "C=C C(=O)O C(=O)",
+      "raw_output": "C=C C(=O)O C(=O)",
+      "valid": true,
+      "exact_match": false,
+      "similarity": 0.5,
+      "seconds": 8.74
+    },
+    {
+      "image": "cosyn_chem_eval/25.png",
+      "target": "[Co@OH3]([OH2])([OH2])([OH2])([OH2])([OH2])",
+      "prediction": "$$\n\\mathrm {C o} \\mathrm {O} _ {4} \\mathrm {H} _ {2} \\mathrm {O} \\mathrm {O H} _ {2} \\mathrm {O} \\mathrm {O H} _ {2}\n$$",
+      "raw_output": "$$\n\\mathrm {C o} \\mathrm {O} _ {4} \\mathrm {H} _ {2} \\mathrm {O} \\mathrm {O H} _ {2} \\mathrm {O} \\mathrm {O H} _ {2}\n$$",
+      "valid": false,
+      "exact_match": false,
+      "similarity": 0.1092,
+      "seconds": 11.62
+    },
+    {
+      "image": "cosyn_chem_eval/26.png",
+      "target": "CN(C)c1cccc2cccc(N(C)C)c12",
+      "prediction": "C(N)(C)C(=C)C1=C2C=CC=C2C(N)(C)C1=C2C=CC=C2C(N)(C)C1=C2C=CC=C2C(N)(C)C1=C2C=CC=C2C(N)(C)C1=C2C=CC=C2C(N)(C)C1=C2C=CC=C2C(N)(C)C1=C2C=CC=C2C(N)(C)C1=C2C=CC=C2C(N)(C)C1=C2C=CC=C2C(N)(C)C1=C2C=CC=C2C(N)(C)C1=C2C=CC=C2C(N)(C)C1=C2C=CC=C2C(N)(C)C1=C2C=CC=C2C(N)(C)C1=C2C=CC=C2C(N)(C)C1=C2C=CC=C2C(N)(C)C1=C2C",
+      "raw_output": "C(N)(C)C(=C)C1=C2C=CC=C2C(N)(C)C1=C2C=CC=C2C(N)(C)C1=C2C=CC=C2C(N)(C)C1=C2C=CC=C2C(N)(C)C1=C2C=CC=C2C(N)(C)C1=C2C=CC=C2C(N)(C)C1=C2C=CC=C2C(N)(C)C1=C2C=CC=C2C(N)(C)C1=C2C=CC=C2C(N)(C)C1=C2C=CC=C2C(N)(C)C1=C2C=CC=C2C(N)(C)C1=C2C=CC=C2C(N)(C)C1=C2C=CC=C2C(N)(C)C1=C2C=CC=C2C(N)(C)C1=C2C=CC=C2C(N)(C)C1=C2C",
+      "valid": false,
+      "exact_match": false,
+      "similarity": 0.0528,
+      "seconds": 34.67
+    },
+    {
+      "image": "cosyn_chem_eval/27.png",
+      "target": "NNc1ccccc1",
+      "prediction": "C=C(N)C=C",
+      "raw_output": "C=C(N)C=C",
+      "valid": true,
+      "exact_match": false,
+      "similarity": 0.0,
+      "seconds": 9.53
+    },
+    {
+      "image": "cosyn_chem_eval/28.png",
+      "target": "C1CO1",
+      "prediction": "Chemical structure of a triene with three carbon atoms and one oxygen atom.",
+      "raw_output": "Chemical structure of a triene with three carbon atoms and one oxygen atom.",
+      "valid": false,
+      "exact_match": false,
+      "similarity": 0.0133,
+      "seconds": 7.33
+    },
+    {
+      "image": "cosyn_chem_eval/29.png",
+      "target": "c1ccc(cc1)O",
+      "prediction": "C(C=C)C=C",
+      "raw_output": "C(C=C)C=C",
+      "valid": true,
+      "exact_match": false,
+      "similarity": 0.0,
+      "seconds": 9.71
+    },
+    {
+      "image": "cosyn_chem_eval/30.png",
+      "target": "CC1CCN2CC(C1)C(C(C2)O)C3=CC=CN4C3=CC=C4",
+      "prediction": "C(C)C1CC2C(C(C(C(C(C2N3C=CC=C3)O)O)O)C=C)C",
+      "raw_output": "C(C)C1CC2C(C(C(C(C(C2N3C=CC=C3)O)O)O)C=C)C",
+      "valid": false,
+      "exact_match": false,
+      "similarity": 0.5,
+      "seconds": 28.15
+    }
+  ]
+}
