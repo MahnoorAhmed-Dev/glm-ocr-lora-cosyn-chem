@@ -12,5 +12,33 @@
       "user_tag": "user",
       "assistant_tag": "assistant"
     }
+  },
+  "cosyn_chem_train": {
+    "file_name": "cosyn_chem_train.json",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "messages",
+      "images": "images"
+    },
+    "tags": {
+      "role_tag": "role",
+      "content_tag": "content",
+      "user_tag": "user",
+      "assistant_tag": "assistant"
+    }
+  },
+  "cosyn_chem_eval": {
+    "file_name": "cosyn_chem_eval.json",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "messages",
+      "images": "images"
+    },
+    "tags": {
+      "role_tag": "role",
+      "content_tag": "content",
+      "user_tag": "user",
+      "assistant_tag": "assistant"
+    }
   }
 }

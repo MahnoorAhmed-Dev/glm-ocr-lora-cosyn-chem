@@ -1,0 +1,452 @@
+[
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "<image>Code Generation:"
+      },
+      {
+        "role": "assistant",
+        "content": "```rdkit\nCCO.CCCCC(=O)O\n```"
+      }
+    ],
+    "images": [
+      "cosyn_chem_eval/1.png"
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "<image>Code Generation:"
+      },
+      {
+        "role": "assistant",
+        "content": "```rdkit\nCCOC=O\n```"
+      }
+    ],
+    "images": [
+      "cosyn_chem_eval/2.png"
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "<image>Code Generation:"
+      },
+      {
+        "role": "assistant",
+        "content": "```rdkit\nCC1=CC(=C(C(=C1O)C)OC)C(C=CC2=CC(=C(C(=C2O)C)OC)C(CO)O)O\n```"
+      }
+    ],
+    "images": [
+      "cosyn_chem_eval/3.png"
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "<image>Code Generation:"
+      },
+      {
+        "role": "assistant",
+        "content": "```rdkit\nCC1=C(C(CCC1)(C)C)C=CC(=CC=CC(=CC=CC=C(C)C=CC=C(C)C=CC2=C(CCCC2(C)C)C)C)C\n```"
+      }
+    ],
+    "images": [
+      "cosyn_chem_eval/4.png"
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "<image>Code Generation:"
+      },
+      {
+        "role": "assistant",
+        "content": "```rdkit\n[Cu+].[N-]=[N+]=[N-]\n```"
+      }
+    ],
+    "images": [
+      "cosyn_chem_eval/5.png"
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "<image>Code Generation:"
+      },
+      {
+        "role": "assistant",
+        "content": "```rdkit\nCCCCCCCCCCCC(=O)OCC(COC(=O)CCCCCCCCCCC)OC(=O)CCCCCCCCCCC\n```"
+      }
+    ],
+    "images": [
+      "cosyn_chem_eval/6.png"
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "<image>Code Generation:"
+      },
+      {
+        "role": "assistant",
+        "content": "```rdkit\nCC(C)(C#N)CC(C)C=CC(c1ccccc1)CC(C)(C#N)CC(C)C=CC(c2ccccc2)CC(C)(C#N)\n```"
+      }
+    ],
+    "images": [
+      "cosyn_chem_eval/7.png"
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "<image>Code Generation:"
+      },
+      {
+        "role": "assistant",
+        "content": "```rdkit\nO=C1O[C@H]([C@H](CO)O)C(O)=C1O\n```"
+      }
+    ],
+    "images": [
+      "cosyn_chem_eval/8.png"
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "<image>Code Generation:"
+      },
+      {
+        "role": "assistant",
+        "content": "```rdkit\nCC=O\n```"
+      }
+    ],
+    "images": [
+      "cosyn_chem_eval/9.png"
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "<image>Code Generation:"
+      },
+      {
+        "role": "assistant",
+        "content": "```rdkit\nN[C@@H](CC(=O)N(CCC(=O)O)C)C(=O)O\n```"
+      }
+    ],
+    "images": [
+      "cosyn_chem_eval/10.png"
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "<image>Code Generation:"
+      },
+      {
+        "role": "assistant",
+        "content": "```rdkit\nCC(C)(C)C(=O)OCCOC(=O)C(C)(C)C\n```"
+      }
+    ],
+    "images": [
+      "cosyn_chem_eval/11.png"
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "<image>Code Generation:"
+      },
+      {
+        "role": "assistant",
+        "content": "```rdkit\nOc1ccc(/C=C/c2cc(O)cc(O)c2)cc1\n```"
+      }
+    ],
+    "images": [
+      "cosyn_chem_eval/12.png"
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "<image>Code Generation:"
+      },
+      {
+        "role": "assistant",
+        "content": "```rdkit\nO=Cc1ccccc1\n```"
+      }
+    ],
+    "images": [
+      "cosyn_chem_eval/13.png"
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "<image>Code Generation:"
+      },
+      {
+        "role": "assistant",
+        "content": "```rdkit\nCC12CCC(=O)C=C1CCC3C2CCC4(C(=O)CCC34C)C(=O)CO\n```"
+      }
+    ],
+    "images": [
+      "cosyn_chem_eval/14.png"
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "<image>Code Generation:"
+      },
+      {
+        "role": "assistant",
+        "content": "```rdkit\n[Na+].[Na+].[O-]S(=O)(=O)OS(=O)(=O)[O-]\n```"
+      }
+    ],
+    "images": [
+      "cosyn_chem_eval/15.png"
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "<image>Code Generation:"
+      },
+      {
+        "role": "assistant",
+        "content": "```rdkit\nC1=NC(=C2C(=N1)N(C=N2)C3C(C(C(O3)COP(=O)(O)OP(=O)(O)OP(=O)(O)O)O)O)N\n```"
+      }
+    ],
+    "images": [
+      "cosyn_chem_eval/16.png"
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "<image>Code Generation:"
+      },
+      {
+        "role": "assistant",
+        "content": "```rdkit\n[Na+].[Cl-].[O-]Cl\n```"
+      }
+    ],
+    "images": [
+      "cosyn_chem_eval/17.png"
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "<image>Code Generation:"
+      },
+      {
+        "role": "assistant",
+        "content": "```rdkit\nCC1=C(C(CCC1)(C)C)C=CC(=C)C=O\n```"
+      }
+    ],
+    "images": [
+      "cosyn_chem_eval/18.png"
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "<image>Code Generation:"
+      },
+      {
+        "role": "assistant",
+        "content": "```rdkit\nC(C1C(C(C(C(O1)OC2(C(C(C(O2)CO)O)O)CO)O)O)O)O\n```"
+      }
+    ],
+    "images": [
+      "cosyn_chem_eval/19.png"
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "<image>Code Generation:"
+      },
+      {
+        "role": "assistant",
+        "content": "```rdkit\nCOC(=O)C1=CC=CC=C1O\n```"
+      }
+    ],
+    "images": [
+      "cosyn_chem_eval/20.png"
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "<image>Code Generation:"
+      },
+      {
+        "role": "assistant",
+        "content": "```rdkit\n[Ag+].[Br-]\n```"
+      }
+    ],
+    "images": [
+      "cosyn_chem_eval/21.png"
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "<image>Code Generation:"
+      },
+      {
+        "role": "assistant",
+        "content": "```rdkit\nCC12CCC(=O)C=C1CCC3C4CCC(C(=O)CO)(C(O)CC34C)C2\n```"
+      }
+    ],
+    "images": [
+      "cosyn_chem_eval/22.png"
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "<image>Code Generation:"
+      },
+      {
+        "role": "assistant",
+        "content": "```rdkit\nCCCCCC\n```"
+      }
+    ],
+    "images": [
+      "cosyn_chem_eval/23.png"
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "<image>Code Generation:"
+      },
+      {
+        "role": "assistant",
+        "content": "```rdkit\nO=C1OC(=O)C=C1\n```"
+      }
+    ],
+    "images": [
+      "cosyn_chem_eval/24.png"
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "<image>Code Generation:"
+      },
+      {
+        "role": "assistant",
+        "content": "```rdkit\n[Co@OH3]([OH2])([OH2])([OH2])([OH2])([OH2])\n```"
+      }
+    ],
+    "images": [
+      "cosyn_chem_eval/25.png"
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "<image>Code Generation:"
+      },
+      {
+        "role": "assistant",
+        "content": "```rdkit\nCN(C)c1cccc2cccc(N(C)C)c12\n```"
+      }
+    ],
+    "images": [
+      "cosyn_chem_eval/26.png"
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "<image>Code Generation:"
+      },
+      {
+        "role": "assistant",
+        "content": "```rdkit\nNNc1ccccc1\n```"
+      }
+    ],
+    "images": [
+      "cosyn_chem_eval/27.png"
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "<image>Code Generation:"
+      },
+      {
+        "role": "assistant",
+        "content": "```rdkit\nC1CO1\n```"
+      }
+    ],
+    "images": [
+      "cosyn_chem_eval/28.png"
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "<image>Code Generation:"
+      },
+      {
+        "role": "assistant",
+        "content": "```rdkit\nc1ccc(cc1)O\n```"
+      }
+    ],
+    "images": [
+      "cosyn_chem_eval/29.png"
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "<image>Code Generation:"
+      },
+      {
+        "role": "assistant",
+        "content": "```rdkit\nCC1CCN2CC(C1)C(C(C2)O)C3=CC=CN4C3=CC=C4\n```"
+      }
+    ],
+    "images": [
+      "cosyn_chem_eval/30.png"
+    ]
+  }
+]
