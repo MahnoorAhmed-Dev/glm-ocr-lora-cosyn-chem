@@ -263,7 +263,7 @@ bf16: true                         # bfloat16 training
 Download [`zai-org/GLM-OCR`](https://huggingface.co/zai-org/GLM-OCR) into `GLM-OCR/` at the repo root:
 
 ```bash
-huggingface-cli download zai-org/GLM-OCR --local-dir GLM-OCR
+hf download zai-org/GLM-OCR --local-dir GLM-OCR
 ```
 
 ### 2. Install
