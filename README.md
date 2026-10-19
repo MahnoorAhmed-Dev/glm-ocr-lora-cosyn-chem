@@ -172,7 +172,7 @@ Only those small matrices receive gradients and optimizer state, so memory drops
 | `lora_rank` (r) | Width of the thin matrices | Higher means more capacity and more trainable parameters; 8 is a common small default |
 | `lora_alpha` | Scaling of the update (`alpha / r`) | Controls how strongly the adapter changes the output; LLaMA-Factory defaults it from the rank when unset |
 | `lora_target` | Which layers get adapters | `all` attaches adapters to all linear layers; fewer targets means fewer parameters |
-| `learning_rate` | Step size | LoRA tolerates larger rates than full fine-tuning, hence `1e-4` here versus `1e-5` for the full-SFT config |
+| `learning_rate` | Step size | LoRA tolerates larger rates than full fine-tuning, hence `1e-4` here, where full fine-tuning would typically use around `1e-5` |
 
 ### Trade-offs
 
@@ -224,8 +224,6 @@ warmup_ratio: 0.1                  # first 10% of steps ramp the LR up
 bf16: true                         # bfloat16 training
 ```
 
-A second config, `glm_ocr_full_sft.yaml`, does **full fine-tuning** of the language model (vision tower and projector frozen, `learning_rate: 1e-5`) for comparison with LoRA.
-
 ### What to expect with 10 samples
 
 - With a batch of 4 and 4 accumulation steps, 10 samples give roughly **one optimizer update per epoch**, so about 3 updates in total. That is enough to confirm the pipeline works but not enough to learn the task.
@@ -252,7 +250,6 @@ A second config, `glm_ocr_full_sft.yaml`, does **full fine-tuning** of the langu
         ├── cosyn_chemical.json
         ├── cosyn_chemical/     # 1.png … 10.png
         ├── glm_ocr_lora_sft.yaml
-        └── glm_ocr_full_sft.yaml
 ```
 
 `GLM-OCR/` holds the base model. The 2.7 GB `model.safetensors` is too large for a normal GitHub push (and over the 2 GB Git LFS limit), so `GLM-OCR/` is git-ignored and downloaded from Hugging Face instead. `LLaMA-Factory/saves/` (training output) is git-ignored too.
