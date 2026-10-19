@@ -1,0 +1,7 @@
+GLM-OCR/
+LLaMA-Factory/saves/
+.claude/
+__pycache__/
+*.pyc
+*.egg-info/
+wandb/
